@@ -15,5 +15,5 @@
 
 #**### Enjoy It ###**#
 
-#[Detial](http://wp.me/p7hYyg-3Z)#
+#[Detial](http://k79k06k02k.com/Pdf/KKTools%20Guild.pdf)#
 #[Author Blog](http://k79k06k02k.com/blog)#
