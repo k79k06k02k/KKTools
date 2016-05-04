@@ -117,7 +117,7 @@ public class PrefabTool : EditorWindow
         switch (tabIndex)
         {
             case 0:
-                return (PrefabUtility.GetPrefabType(obj) != PrefabType.None && PrefabUtility.GetPrefabType(obj) != PrefabType.DisconnectedPrefabInstance) || obj.activeSelf == false;
+                return PrefabUtility.GetPrefabType(obj) == PrefabType.PrefabInstance || PrefabUtility.GetPrefabType(obj) == PrefabType.Prefab || obj.activeSelf == false;
 
             case 1:
                 return PrefabUtility.GetPrefabType(obj) != PrefabType.PrefabInstance;
