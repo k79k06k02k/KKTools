@@ -10,6 +10,8 @@ using System.Text;
 
 public class PrefabTool : EditorWindow
 {
+    string path = "Assets/";
+    string extension = ".prefab";
     string[] Types = new string[] { "Create", "Apply" };
     int tabIndex = 0;
 
@@ -64,7 +66,7 @@ public class PrefabTool : EditorWindow
             return;
         }
 
-        selectObj.Sort(delegate(GameObject a, GameObject b)
+        selectObj.Sort(delegate (GameObject a, GameObject b)
         {
             return a.name.CompareTo(b.name);
         });
@@ -149,18 +151,26 @@ public class PrefabTool : EditorWindow
             "No"))
         {
 
+            int count = 1;
             foreach (GameObject obj in selectObj)
             {
-                Object prefab = PrefabUtility.CreateEmptyPrefab("Assets/" + obj.name + ".prefab");
+                EditorUtility.DisplayProgressBar("Create Prefab", string.Format("({0} / {1})　Path:[{2}]；Name:[{3}]", count, selectObj.Count, path, obj.name), count / (float)selectObj.Count);
 
-                if (prefab != null)
+                Object emptyPrefab = PrefabUtility.CreateEmptyPrefab(path + obj.name + extension);
+
+                if (emptyPrefab != null)
                 {
-                    PrefabUtility.ReplacePrefab(obj, prefab);
-                    Debug.Log("Create Prefab in [Assets/]； Name [" + obj.name + ".prefab" + "] Success!!");
+                    GameObject prefab = PrefabUtility.ReplacePrefab(obj, emptyPrefab);
+
+                    if (prefab != null)
+                        Debug.Log(string.Format("Create Prefab　　Path:[{0}]；Name:[{1}]　Success!!", path, obj.name + extension));
                 }
 
                 AssetDatabase.Refresh();
+                count++;
             }
+
+            EditorUtility.ClearProgressBar();
         }
     }
 
@@ -173,7 +183,20 @@ public class PrefabTool : EditorWindow
         {
 
             for (int i = 0; i < selectObj.Count; i++)
-                PrefabUtility.ReplacePrefab(selectObj[i], PrefabUtility.GetPrefabParent(selectObj[i]), ReplacePrefabOptions.ConnectToPrefab);
+            {
+                Object parentObject = PrefabUtility.GetPrefabParent(selectObj[i]);
+                string prefabPath = AssetDatabase.GetAssetPath(parentObject);
+                prefabPath = prefabPath.Substring(0, prefabPath.Length - (selectObj[i].name + extension).Length);
+
+
+                EditorUtility.DisplayProgressBar("Apply Prefab", string.Format("({0} / {1})　Path:[{2}]；Name:[{3}]", i + 1, selectObj.Count, prefabPath, selectObj[i].name), (i + 1) / (float)selectObj.Count);
+                GameObject prefab = PrefabUtility.ReplacePrefab(selectObj[i], PrefabUtility.GetPrefabParent(selectObj[i]), ReplacePrefabOptions.ConnectToPrefab);
+
+                if (prefab != null)
+                    Debug.Log(string.Format("Apply Prefab　　Path:[{0}]；Name:[{1}]　Success!!", prefabPath, selectObj[i].name + extension));
+            }
+
+            EditorUtility.ClearProgressBar();
         }
     }
 }
