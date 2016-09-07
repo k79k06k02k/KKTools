@@ -18,7 +18,7 @@
 #[Author Blog](http://k79k06k02k.com/blog)#
 
 #License#
-[![CC-by-sa.png](http://k79k06k02k.com/Image/CC-by-sa.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+[![CC-by-sa.png](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 Something code are quote from [AssetBundleAnalyzer](http://forum.unity3d.com/threads/asset-bundle-analyzer.182413/)、[GameObjectFinder](http://wiki.unity3d.com/index.php/FindGameObjects)、[SceneWatcher](http://wiki.unity3d.com/index.php/SceneViewWindow) The license of the that follow theirs.
 
