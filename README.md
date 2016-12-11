@@ -13,7 +13,7 @@
 * Free
 * Open Source
 
-#[Detial](https://github.com/k79k06k02k/KKTools/blob/master/KKTools/KKTools%20Guide.pdf)#
+#[Guide](https://github.com/k79k06k02k/KKTools/blob/master/KKTools/KKTools%20Guide.pdf)#
 
 ##Support & Feedback
 Blog：[http://k79k06k02k.com/blog](http://k79k06k02k.com/blog)<br>
