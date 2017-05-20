@@ -1,8 +1,7 @@
-#**KKTools is fast and Convenience tools.**#
+# KKTools
+[Guide](https://github.com/k79k06k02k/KKTools/blob/master/KKTools/KKTools%20Guide.pdf)<br><br>
 
-#[Guide](https://github.com/k79k06k02k/KKTools/blob/master/KKTools/KKTools%20Guide.pdf)#
-
-##Support & Feedback
+## Support & Feedback
 Blog：[http://k79k06k02k.com/blog](http://k79k06k02k.com/blog)<br>
 Facebook：[https://www.facebook.com/k79k06k02k](https://www.facebook.com/k79k06k02k)<br>
 Email：k79k06k02k@gmail.com<br><br>
